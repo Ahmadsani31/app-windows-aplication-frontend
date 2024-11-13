@@ -13,7 +13,7 @@ function Content({ dataFolder }) {
         nama: "",
         parent_id: dataFolder.id,
     })
-    console.log(form);
+    // console.log(form);
 
 
     const [errors, setErrors] = useState({});
@@ -64,7 +64,7 @@ function Content({ dataFolder }) {
             url: `http://api-folder.test:8000/api/v1/folder/sub/` + dataFolder.id,
 
         }).then(function (response) {
-            console.log(response.data);
+            // console.log(response.data);
             setIsLoading(false)
             setParamData(response.data);
         }).catch((err) => {

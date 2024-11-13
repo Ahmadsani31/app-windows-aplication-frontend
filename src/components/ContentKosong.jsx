@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import AnimatePulseKosong from "./AnimatePulse.jsx";
 
 function Content() {
     const [paramData, setParamData] = useState([]);
@@ -16,7 +17,7 @@ function Content() {
             url: `http://api-folder.test:8000/api/v1/folder-all/`,
 
         }).then(function (response) {
-            console.log(response.data);
+            // console.log(response.data);
             setIsLoading(false)
             setParamData(response.data.data);
         }).catch((err) => {
@@ -24,7 +25,7 @@ function Content() {
         });
     }
 
-    console.log(paramData);
+    // console.log(paramData);
 
 
     return (
@@ -32,12 +33,24 @@ function Content() {
             <h2 className="text-2xl font-semibold">Dashboard </h2>
             <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="bg-white shadow-md rounded p-4">
-                    <h3 className="text-xl font-semibold">Folder</h3>
-                    <p>{paramData.folder} folder</p>
+                    {isLoading ? (<AnimatePulseKosong />) : (
+                        <>
+                            <h3 className="text-xl font-semibold">Folder</h3>
+                            <p>{paramData.folder} folder</p>
+                        </>
+
+                    )}
+
                 </div>
                 <div className="bg-white shadow-md rounded p-4">
-                    <h3 className="text-xl font-semibold">Sub Folder</h3>
-                    <p>{paramData.subFolder} folder</p>
+                    {isLoading ? (<AnimatePulseKosong />) : (
+                        <>
+                            <h3 className="text-xl font-semibold">Sub Folder</h3>
+                            <p>{paramData.subFolder} folder</p>
+                        </>
+
+                    )}
+
                 </div>
             </div>
         </div>
