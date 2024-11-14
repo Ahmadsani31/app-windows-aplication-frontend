@@ -5,7 +5,6 @@ import AnimatePulse from "./AnimatePulse";
 function ContentFolder({ dataFolder }) {
 
     const [paramData, setParamData] = useState([]);
-    const [paramDataFolder, setParamDataFolder] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isLoadingBtn, setIsLoadingBtn] = useState(false);
 
